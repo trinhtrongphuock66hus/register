@@ -29,6 +29,9 @@ a{
     font-size: x-large;
     font-weight: bold;
     margin-bottom: 20px;
+    background-image: url("backgroundtext.jpg");
+    -webkit-background-clip: text;
+    color: transparent;
 }
 .login .des{
     margin-bottom: 20px;
