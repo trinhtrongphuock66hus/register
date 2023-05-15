@@ -38,7 +38,7 @@ app.post('/users', (req, res) => {
   connection.query(`INSERT INTO nguoidung (user, pass, email) VALUES ('${user}', '${pass}', '${email}')`, (error, results, fields) => {
     if (error) throw error;
     console.log(`Thêm người dùng mới thành công: `, { user, pass, email });
-    res.send({ message: 'Thêm người dùng mới thành công' });
+    res.send({ message: 'Tạo tài khoản thành công' });
   });
 });
 

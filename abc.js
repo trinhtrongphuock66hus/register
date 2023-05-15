@@ -61,6 +61,9 @@ signInButton.addEventListener("click", function() {
         };
       }
     }
+    else{
+      alert("Cơ sở dữ liệu chưa khởi động!");
+    }
   };
   // Gửi yêu cầu HTTP GET đến địa chỉ '/users'
   xhttp.open("GET", "http://localhost:3000/users", true);
