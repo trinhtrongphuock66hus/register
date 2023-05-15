@@ -61,7 +61,7 @@ signInButton.addEventListener("click", function() {
         };
       }
     }
-    else{
+    else if(this.status !== 200){
       alert("Cơ sở dữ liệu chưa khởi động!");
     }
   };
