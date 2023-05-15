@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-a{
+button{
     text-decoration: none;
     color: #1364df;   
 }
