@@ -21,7 +21,7 @@ signInButton.addEventListener("click", function() {
   const pass= document.getElementById("password").value;
   const email = document.getElementById("email").value;
   // Kiểm tra tính hợp lệ của tên đăng nhập và mật khẩu
-  console.log(`Username: `,user,`Password: `,pass,`Email: `,email);
+  console.log(`Username: `,username,`Password: `,pass,`Email: `,email);
 
   // khởi tạo đối tượng XMLHttpRequest
   var xhttp = new XMLHttpRequest();
@@ -38,7 +38,7 @@ signInButton.addEventListener("click", function() {
       } else {
         // Tạo một đối tượng mới để chứa thông tin người dùng
         var newUser = {
-          user: user,
+          user: username,
           pass: pass,
           email: email
         };
