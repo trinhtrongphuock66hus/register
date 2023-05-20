@@ -17,7 +17,7 @@ const signInButton = document.querySelector(".signIn button");
 // Gán sự kiện cho nút SignIn
 signInButton.addEventListener("click", function() {
   // Lấy thông tin tài khoản và mật khẩu từ các trường nhập liệu
-  const user = document.getElementById("username").value;
+  const username = document.getElementById("username").value;
   const pass= document.getElementById("password").value;
   const email = document.getElementById("email").value;
   // Kiểm tra tính hợp lệ của tên đăng nhập và mật khẩu
@@ -31,7 +31,7 @@ signInButton.addEventListener("click", function() {
     if (this.readyState == 4 && this.status == 200) {
       // Xử lý kết quả trả về từ máy chủ
       var data = JSON.parse(this.responseText);
-      const nguoiDung = data.find(user => user.user === user || user.email === email );
+      const nguoiDung = data.find(user => user.user === username || user.email === email );
       if (nguoiDung) {
         // Tài khoản đã tồn tại
         alert("Tài khoản hoặc email đã sử dụng");
