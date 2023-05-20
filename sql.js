@@ -34,10 +34,10 @@ app.get('/users', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  const { username, pass, email } = req.body;
-  connection.query(`INSERT INTO nguoidung (user, pass, email) VALUES ('${username}', '${pass}', '${email}')`, (error, results, fields) => {
+  const { user, pass, email } = req.body;
+  connection.query(`INSERT INTO nguoidung (user, pass, email) VALUES ('${user}', '${pass}', '${email}')`, (error, results, fields) => {
     if (error) throw error;
-    console.log(`Thêm người dùng mới thành công: `, { username, pass, email });
+    console.log(`Thêm người dùng mới thành công: `, { user , pass, email });
     res.send({ message: 'Tạo tài khoản thành công' });
   });
 });
