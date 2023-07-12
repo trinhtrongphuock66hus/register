@@ -63,6 +63,6 @@ signInButton.addEventListener("click", function() {
     }
   };
   // Gửi yêu cầu HTTP GET đến địa chỉ '/users'
-  xhttp.open("GET", "http://localhost:3000/users", true);
+  xhttp.open("GET", "http://192.168.2.6:3000/users", true);
   xhttp.send();
 });

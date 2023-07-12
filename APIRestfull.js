@@ -54,6 +54,20 @@ app.post('/address', (req, res) => {
     res.send({ message: 'Đặt hàng thành công' });
   });
 });
-app.listen(3000, () => {
-  console.log('Server đang chạy trên cổng 3000');
+//lấy địa chỉ ip
+var os = require ('os');
+var interfaces = os.networkInterfaces ();
+var addresses = [];
+for (var k in interfaces) {
+  for (var k2 in interfaces [k]) {
+    var address = interfaces [k] [k2];
+    if (address.family === 'IPv4' && !address.internal) {
+      addresses.push (address.address);
+    }
+  }
+}
+const host = '0.0.0.0'
+app.listen(3000,host, () => {
+  console.log(`Server đang chạy trên cổng http://${addresses}:3000/users`);
+  console.log(`Server đang chạy trên cổng http://58.186.216.149:3000/users`);
 });
