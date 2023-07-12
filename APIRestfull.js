@@ -4,6 +4,15 @@ const cors = require('cors');
 
 const app = express();
 
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  key: fs.readFileSync('C:\\Users\\PC\\Desktop\\page\\register\\key.pem'),
+  cert: fs.readFileSync('C:\\Users\\PC\\Desktop\\page\\register\\cert.pem')
+};
+
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // thêm middleware body-parser
@@ -67,7 +76,12 @@ for (var k in interfaces) {
   }
 }
 const host = '0.0.0.0'
-app.listen(3000,host, () => {
+/*app.listen(3000,host, () => {
   console.log(`Server đang chạy trên cổng http://${addresses}:3000/users`);
   console.log(`Server đang chạy trên cổng http://58.186.216.149:3000/users`);
+});*/
+
+https.createServer(options, app).listen(3000, host, () => {
+  console.log(`Server đang chạy trên cổng https://${addresses}:3000/users`);
+  console.log(`Server đang chạy trên cổng https://58.186.216.149:3000/users`);
 });
