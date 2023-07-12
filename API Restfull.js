@@ -22,7 +22,6 @@ connection.connect((err) => {
     console.error('Lỗi kết nối: ' + err.stack);
     return;
   }
-
   console.log('Kết nối thành công với id ' + connection.threadId);
 });
 
@@ -32,7 +31,6 @@ app.get('/users', (req, res) => {
     res.send(results);
   });
 });
-
 app.post('/users', (req, res) => {
   const { user, pass, email } = req.body;
   connection.query(`INSERT INTO nguoidung (user, pass, email) VALUES ('${user}', '${pass}', '${email}')`, (error, results, fields) => {
@@ -42,6 +40,20 @@ app.post('/users', (req, res) => {
   });
 });
 
+app.get('/address', (req, res) => {
+  connection.query('SELECT * FROM diachi', (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+  });
+});
+app.post('/address', (req, res) => {
+  const { name , address, phonenumber } = req.body;
+  connection.query(`INSERT INTO diachi (name, address, phone) VALUES ('${name}', '${address}', '${phonenumber}')`, (error, results, fields) => {
+    if (error) throw error;
+    console.log(`Thêm địa chỉ mới thành công: `, { name , address, phonenumber });
+    res.send({ message: 'Đặt hàng thành công' });
+  });
+});
 app.listen(3000, () => {
   console.log('Server đang chạy trên cổng 3000');
 });
